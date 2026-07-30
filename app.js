@@ -1,4 +1,6 @@
 const STORAGE_KEY = "is2-loans-v1";
+// FICHA 26: nueva clave para guardar el último solicitante usado
+const LAST_BORROWER_KEY = "is2-last-borrower";
 
 const equipmentCatalog = [
   { id: "EQ-01", name: "Laptop Lenovo", category: "Cómputo" },
@@ -115,6 +117,8 @@ form.addEventListener("submit", (event) => {
     status: "Activo"
   });
   saveLoans(loans);
+  // FICHA 26: guardamos el nombre del solicitante para recordarlo la próxima vez
+  localStorage.setItem(LAST_BORROWER_KEY, borrower);
   form.reset();
   loanDateInput.value = todayISO();
   returnDateInput.value = todayISO();
@@ -140,4 +144,9 @@ document.querySelector("#resetDemoBtn").addEventListener("click", () => {
 
 loanDateInput.value = todayISO();
 returnDateInput.value = todayISO();
+// FICHA 26: si hay un último solicitante guardado, lo precargamos en el campo
+const lastBorrower = localStorage.getItem(LAST_BORROWER_KEY);
+if (lastBorrower) {
+  borrowerInput.value = lastBorrower;
+}
 renderLoans();
