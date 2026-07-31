@@ -29,8 +29,8 @@ Reemplace esta tabla por los dos casos de su asignación. Incluya una captura po
 
 | Caso | Datos de entrada / acción | Resultado esperado | Resultado obtenido | Estado |
 |---|---|---|---|---|
-| CP-01: caso válido | [Completar] | [Completar] | [Completar] | Aprobado / Fallido |
-| CP-02: caso límite o inválido | [Completar] | [Completar] | [Completar] | Aprobado / Fallido |
+| CP-01: caso válido | Se registró un préstamo con Solicitante: "Joaquin Reynoso" (equipo y fechas válidas). Acción: clic en "Registrar préstamo", luego recargar la página (F5). | El campo "Solicitante" debe mostrar "Joaquin Reynoso" automáticamente al recargar, sin que el usuario lo escriba de nuevo. | Al recargar la página, el campo "Solicitante" mostró "Joaquin Reynoso" precargado correctamente. | Aprobado |
+| CP-02: caso límite o inválido | Se limpió el localStorage del sitio (borrado manual desde DevTools) y se abrió la aplicación. | El campo "Solicitante" debe aparecer vacío, sin errores en consola. | El campo "Solicitante" apareció vacío y la aplicación cargó con normalidad. | Aprobado |
 
 ## Entrega
 
