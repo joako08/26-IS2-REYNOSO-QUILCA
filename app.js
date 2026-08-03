@@ -137,6 +137,9 @@ loanList.addEventListener("click", (event) => {
 document.querySelector("#resetDemoBtn").addEventListener("click", () => {
   if (confirm("¿Desea eliminar todos los préstamos guardados en este navegador?")) {
     localStorage.removeItem(STORAGE_KEY);
+    // FICHA 26: también eliminamos el último solicitante guardado al restablecer
+    localStorage.removeItem(LAST_BORROWER_KEY);
+    borrowerInput.value = "";
     showMessage("");
     renderLoans();
   }
